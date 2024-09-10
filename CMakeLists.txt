@@ -4,10 +4,7 @@ project(
     VERSION 0.1.0
     LANGUAGES CXX C
 )
-set_target_properties(App PROPERTIES
-  CXX_STANDARD 17
-  CXX_STANDARD_REQUIRED ON
-  CXX_EXTENSIONS OFF
-  COMPILE_WARNING_AS_ERROR ON
-)
+add_subdirectory(webgpu)
 add_executable(App main.cpp)
+target_link_libraries(App PRIVATE webgpu)
+target_copy_webgpu_binaries(App)
